@@ -7,4 +7,4 @@
 - ⚡ Fun fact: Coding is love and pain
 -----------------------
 ### Social connect
-[INSTAGRAM](https://instagram.com/bugxploit) | [Linkedin](https://www.linkedin.com/in/bugxploit)
+[Instagram](https://instagram.com/bugxploit) | [Linkedin](https://www.linkedin.com/in/bugxploit)
