@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sumon Nath | SecOps Engineer & Security Researcher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of Sumon Nath, SecOps Engineer and Security Researcher with expertise in application and network security, NIST frameworks, and CVE research." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b1120;
+      --bg-alt: #020617;
+      --card: #020617;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: rgba(148, 163, 184, 0.2);
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.85);
+      --radius-xl: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 46%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 32px auto 48px;
+      padding: 0 16px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 2.5fr) minmax(0, 1.8fr);
+      gap: 32px;
+      margin-bottom: 32px;
+      padding: 24px 24px 28px;
+      border-radius: 24px;
+      background: radial-gradient(circle at top left, rgba(34,197,94,0.12), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(59,130,246,0.18), transparent 60%),
+                  var(--bg-alt);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(16px);
+    }
+
+    @media (max-width: 780px) {
+      header {
+        grid-template-columns: 1fr;
+      }
+      .page {
+        margin-top: 20px;
+      }
+    }
+
+    .title-block h1 {
+      font-size: clamp(2.3rem, 3vw, 2.8rem);
+      letter-spacing: 0.04em;
+      font-weight: 700;
+    }
+
+    .title-block h1 span {
+      color: var(--accent);
+    }
+
+    .role {
+      font-size: 1.05rem;
+      margin: 8px 0 10px;
+      color: #cbd5f5;
+      font-weight: 500;
+    }
+
+    .tagline {
+      color: var(--muted);
+      max-width: 36rem;
+      font-size: 0.95rem;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      border-radius: 999px;
+      padding: 6px 11px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: #e5e7eb;
+      white-space: nowrap;
+    }
+
+    .pill--accent {
+      background: var(--accent-soft);
+      border-color: rgba(34, 197, 94, 0.55);
+      color: #bbf7d0;
+    }
+
+    .contact-card {
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 18px 18px 16px;
+      align-self: center;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .contact-label {
+      min-width: 70px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #6b7280;
+    }
+
+    .contact-value {
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .contact-link {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
+    }
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .social-chip {
+      font-size: 0.78rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.65);
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .social-chip span {
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .hint {
+      margin-top: 6px;
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 960px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .section {
+      margin-bottom: 18px;
+      border-radius: var(--radius-xl);
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid var(--border);
+      padding: 18px 18px 16px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
+    }
+
+    .section--flat {
+      box-shadow: none;
+      background: rgba(15, 23, 42, 0.94);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgba(55, 65, 81, 0.8);
+      padding-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #9ca3af;
+    }
+
+    .section-subtitle {
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    .summary-text {
+      font-size: 0.93rem;
+      color: #d1d5db;
+    }
+
+    .summary-text strong {
+      color: #e5e7eb;
+    }
+
+    .experience-item {
+      margin-top: 12px;
+      padding: 10px 10px 8px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(55, 65, 81, 0.85);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 3px;
+    }
+
+    .exp-role {
+      font-weight: 600;
+      font-size: 0.97rem;
+      color: #e5e7eb;
+    }
+
+    .exp-company {
+      font-size: 0.86rem;
+      color: #9ca3af;
+    }
+
+    .exp-duration {
+      font-size: 0.82rem;
+      color: #6b7280;
+      white-space: nowrap;
+    }
+
+    .exp-tags {
+      margin-top: 5px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .exp-tag {
+      font-size: 0.7rem;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      color: #9ca3af;
+    }
+
+    .exp-points {
+      margin-top: 6px;
+      padding-left: 18px;
+      font-size: 0.88rem;
+      color: #d1d5db;
+    }
+
+    .exp-points li + li {
+      margin-top: 3px;
+    }
+
+    .edu-item {
+      margin-top: 8px;
+      padding: 9px 10px 8px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.8);
+      font-size: 0.9rem;
+    }
+
+    .edu-degree {
+      font-weight: 600;
+      color: #e5e7eb;
+      font-size: 0.94rem;
+    }
+
+    .edu-details {
+      font-size: 0.86rem;
+      color: #9ca3af;
+      margin-top: 2px;
+    }
+
+    .edu-meta {
+      margin-top: 4px;
+      font-size: 0.82rem;
+      color: #6b7280;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 600px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .skill-group h4 {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    .skill-group ul {
+      list-style: none;
+      color: #d1d5db;
+    }
+
+    .skill-group li + li {
+      margin-top: 2px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 6px;
+    }
+
+    .chip {
+      font-size: 0.72rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(75, 85, 99, 0.95);
+      color: #e5e7eb;
+    }
+
+    .chip--soft {
+      background: rgba(34, 197, 94, 0.12);
+      border-color: rgba(34, 197, 94, 0.7);
+      color: #bbf7d0;
+    }
+
+    .list-compact {
+      list-style: none;
+      font-size: 0.9rem;
+      color: #d1d5db;
+    }
+
+    .list-compact li + li {
+      margin-top: 4px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 0.76rem;
+      color: #6b7280;
+    }
+
+    footer span {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="title-block">
+        <h1><span>Sumon</span> Nath</h1>
+        <p class="role">SecOps Engineer · Sr Software Engineer · Security Researcher</p>
+        <p class="tagline">
+          Agile security engineer with 3+ years of experience in application &amp; network security,
+          NIST-aligned assessments, vulnerability testing, and blockchain auditing — helping teams
+          build and ship secure systems without slowing down delivery.
+        </p>
+        <div class="pills">
+          <span class="pill pill--accent">Application &amp; Network Security</span>
+          <span class="pill">NIST &amp; Agile Security</span>
+          <span class="pill">Vulnerability Research &amp; Exploitation</span>
+          <span class="pill">CVE &amp; CTF Contributor</span>
+        </div>
+      </div>
+
+      <aside class="contact-card">
+        <div class="contact-row">
+          <div class="contact-label">Location</div>
+          <div class="contact-value">515 Nath Villa, S C Ghosh Street, Goalapara</div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-label">Email</div>
+          <div class="contact-value">
+            <a href="mailto:snath2973@gmail.com" class="contact-link">snath2973@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-label">Phone</div>
+          <div class="contact-value">
+            <a href="tel:+918360207436" class="contact-link">+91&nbsp;83602&nbsp;07436</a>
+          </div>
+        </div>
+
+        <div class="socials">
+          <!-- Replace # with your actual links -->
+          <a class="social-chip" href="#" target="_blank" rel="noreferrer">
+            GitHub · <span>@your-handle</span>
+          </a>
+          <a class="social-chip" href="#" target="_blank" rel="noreferrer">
+            LinkedIn · <span>/in/your-profile</span>
+          </a>
+          <a class="social-chip" href="#" target="_blank" rel="noreferrer">
+            Blog · <span>Security notes</span>
+          </a>
+        </div>
+        <p class="hint">Update the social links above with your real profiles.</p>
+      </aside>
+    </header>
+
+    <main>
+      <!-- Left column: Summary + Experience -->
+      <section>
+        <div class="section">
+          <div class="section-header">
+            <h2 class="section-title">Profile</h2>
+            <span class="section-subtitle">Overview</span>
+          </div>
+          <p class="summary-text">
+            SecOps Engineer with <strong>3+ years</strong> of hands-on experience in
+            <strong>application and network security</strong>, including NIST-aligned risk
+            assessments, vulnerability research, secure infrastructure deployment, and blockchain
+            auditing. Comfortable working across <strong>Agile teams</strong> to turn findings
+            into actionable remediation, build <strong>vulnerable labs &amp; CTFs</strong> for
+            training, and support <strong>incident response</strong> through proactive monitoring
+            and detection engineering.
+          </p>
+        </div>
+
+        <div class="section">
+          <div class="section-header">
+            <h2 class="section-title">Experience</h2>
+            <span class="section-subtitle">Professional</span>
+          </div>
+
+          <!-- Loginsoft -->
+          <article class="experience-item">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">SecOps Engineer</div>
+                <div class="exp-company">Loginsoft (Checkmarx) Pvt Ltd</div>
+              </div>
+              <div class="exp-duration">2024 &ndash; 2025</div>
+            </div>
+            <div class="exp-tags">
+              <span class="exp-tag">SCA</span>
+              <span class="exp-tag">DAST</span>
+              <span class="exp-tag">Vulnerability Research</span>
+              <span class="exp-tag">NIST</span>
+              <span class="exp-tag">Secure SDLC</span>
+            </div>
+            <ul class="exp-points">
+              <li>
+                Conducted <strong>software composition analysis (SCA)</strong> for client applications
+                to identify and prioritize open-source risks.
+              </li>
+              <li>
+                Led <strong>patch management</strong> and coordination with development teams to ensure
+                timely remediation of discovered security vulnerabilities.
+              </li>
+              <li>
+                Developed <strong>custom exploits</strong> and built <strong>vulnerable VMs</strong>
+                to validate findings and support internal research.
+              </li>
+              <li>
+                Executed <strong>DAST</strong> on in-house and client applications, validating and
+                documenting findings with clear impact and remediation guidance.
+              </li>
+              <li>
+                Performed <strong>network and application-level assessments</strong> aligned with
+                NIST and industry best practices, supporting incident response with log and alert review.
+              </li>
+            </ul>
+          </article>
+
+          <!-- Qbit Technology -->
+          <article class="experience-item">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">SecOps Engineer</div>
+                <div class="exp-company">Qbit Technology Pvt Ltd</div>
+              </div>
+              <div class="exp-duration">2022 &ndash; 2024</div>
+            </div>
+            <div class="exp-tags">
+              <span class="exp-tag">Server Hardening</span>
+              <span class="exp-tag">Terraform</span>
+              <span class="exp-tag">CTF Design</span>
+              <span class="exp-tag">Cloud &amp; On-prem</span>
+            </div>
+            <ul class="exp-points">
+              <li>
+                Performed <strong>comprehensive server testing</strong> to validate configuration,
+                hardening, and runtime performance across on-prem and cloud environments.
+              </li>
+              <li>
+                Managed <strong>secure server deployments</strong> and environment setups, focusing on
+                reproducibility and least-privilege design.
+              </li>
+              <li>
+                Designed and built <strong>CTF challenges and vulnerable machines</strong> based on
+                real-world exploitation techniques for training and research.
+              </li>
+              <li>
+                Automated infrastructure deployment and management using
+                <strong>Terraform</strong> with security controls baked into modules.
+              </li>
+              <li>
+                Conducted in-depth <strong>CVE research</strong> to assess exploitability, impact,
+                and appropriate mitigation strategies.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Right column: Education, Skills, Certifications, Awards -->
+      <section>
+        <div class="section section--flat">
+          <div class="section-header">
+            <h2 class="section-title">Education</h2>
+            <span class="section-subtitle">Academic background</span>
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree">
+              Integrated M.Tech in Computer Science &amp; Cyber Security
+            </div>
+            <div class="edu-details">Vellore Institute of Technology (VIT)</div>
+            <div class="edu-meta">
+              2020 &ndash; 2025 · CGPA: <strong>8.2</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="section section--flat">
+          <div class="section-header">
+            <h2 class="section-title">Skills</h2>
+            <span class="section-subtitle">Technical &amp; security</span>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-group">
+              <h4>Security Engineering</h4>
+              <ul>
+                <li>Security principles &amp; best practices</li>
+                <li>Vulnerability assessment &amp; pentesting</li>
+                <li>Application security testing</li>
+                <li>Secure code review</li>
+              </ul>
+            </div>
+            <div class="skill-group">
+              <h4>Frameworks &amp; Ops</h4>
+              <ul>
+                <li>NIST frameworks</li>
+                <li>Agile security practices</li>
+                <li>Network security monitoring</li>
+                <li>Incident response support</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="chips">
+            <span class="chip chip--soft">NIST-aligned assessments</span>
+            <span class="chip">Server hardening</span>
+            <span class="chip">Patch management</span>
+            <span class="chip">Exploit development</span>
+            <span class="chip">Terraform automation</span>
+            <span class="chip">CTF building &amp; lab design</span>
+          </div>
+        </div>
+
+        <div class="section section--flat">
+          <div class="section-header">
+            <h2 class="section-title">Certifications</h2>
+            <span class="section-subtitle">Verified</span>
+          </div>
+          <ul class="list-compact">
+            <li><strong>CEH v12</strong> &mdash; EC-Council</li>
+            <li><strong>eJPT</strong> &mdash; eLearnSecurity</li>
+          </ul>
+        </div>
+
+        <div class="section section--flat">
+          <div class="section-header">
+            <h2 class="section-title">Awards &amp; Recognition</h2>
+            <span class="section-subtitle">Community impact</span>
+          </div>
+          <ul class="list-compact">
+            <li>Microsoft <strong>Most Valuable Security Researcher</strong></li>
+            <li><strong>Hall of Fame</strong> at 100+ domains</li>
+            <li><strong>13×</strong> CTF winner</li>
+            <li><strong>5×</strong> Hackathon winner</li>
+            <li><strong>2× CVE</strong> published (under my name)</li>
+            <li><strong>1× CWE</strong> in progress</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      &copy; <span>Sumon Nath</span> · SecOps Engineer &amp; Security Researcher
+    </footer>
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sumon Nath | SecOps Engineer & Security Researcher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of Sumon Nath, SecOps Engineer and Security Researcher with expertise in application and network security, NIST frameworks, and CVE research." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b1120;
+      --bg-alt: #020617;
+      --card: #020617;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: rgba(148, 163, 184, 0.2);
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.85);
+      --radius-xl: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 46%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 32px auto 48px;
+      padding: 0 16px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 2.5fr) minmax(0, 1.8fr);
+      gap: 32px;
+      margin-bottom: 32px;
+      padding: 24px 24px 28px;
+      border-radius: 24px;
+      background: radial-gradient(circle at top left, rgba(34,197,94,0.12), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(59,130,246,0.18), transparent 60%),
+                  var(--bg-alt);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(16px);
+    }
+
+    @media (max-width: 780px) {
+      header {
+        grid-template-columns: 1fr;
+      }
+      .page {
+        margin-top: 20px;
+      }
+    }
+
+    .title-block h1 {
+      font-size: clamp(2.3rem, 3vw, 2.8rem);
+      letter-spacing: 0.04em;
+      font-weight: 700;
+    }
+
+    .title-block h1 span {
+      color: var(--accent);
+    }
+
+    .role {
+      font-size: 1.05rem;
+      margin: 8px 0 10px;
+      color: #cbd5f5;
+      font-weight: 500;
+    }
+
+    .tagline {
+      color: var(--muted);
+      max-width: 36rem;
+      font-size: 0.95rem;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      border-radius: 999px;
+      padding: 6px 11px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: #e5e7eb;
+      white-space: nowrap;
+    }
+
+    .pill--accent {
+      background: var(--accent-soft);
+      border-color: rgba(34, 197, 94, 0.55);
+      color: #bbf7d0;
+    }
+
+    .contact-card {
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 18px 18px 16px;
+      align-self: center;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .contact-label {
+      min-width: 70px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #6b7280;
+    }
+
+    .contact-value {
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .contact-link {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
+    }
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .social-chip {
+      font-size: 0.78rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.65);
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .social-chip span {
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .hint {
+      margin-top: 6px;
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 960px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .section {
+      margin-bottom: 18px;
+      border-radius: var(--radius-xl);
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid var(--border);
+      padding: 18px 18px 16px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
+    }
+
+    .section--flat {
+      box-shadow: none;
+      background: rgba(15, 23, 42, 0.94);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgba(55, 65, 81, 0.8);
+      padding-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #9ca3af;
+    }
+
+    .section-subtitle {
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    .summary-text {
+      font-size: 0.93rem;
+      color: #d1d5db;
+    }
+
+    .summary-text strong {
+      color: #e5e7eb;
+    }
+
+    .experience-item {
+      margin-top: 12px;
+      padding: 10px 10px 8px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(55, 65, 81, 0.85);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 3px;
+    }
+
+    .exp-role {
+      font-weight: 600;
+      font-size: 0.97rem;
+      color: #e5e7eb;
+    }
+
+    .exp-company {
+      font-size: 0.86rem;
+      color: #9ca3af;
+    }
+
+    .exp-duration {
+      font-size: 0.82rem;
+      color: #6b7280;
+      white-space: nowrap;
+    }
+
+    .exp-tags {
+      margin-top: 5px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .exp-tag {
+      font-size: 0.7rem;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      color: #9ca3af;
+    }
+
+    .exp-points {
+      margin-top: 6px;
+      padding-left: 18px;
+      font-size: 0.88rem;
+      color: #d1d5db;
+    }
+
+    .exp-points li + li {
+      margin-top: 3px;
+    }
+
+    .edu-item {
+      margin-top: 8px;
+      padding: 9px 10px 8px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.8);
+      font-size: 0.9rem;
+    }
+
+    .edu-degree {
+      font-weight: 600;
+      color: #e5e7eb;
+      font-size: 0.94rem;
+    }
+
+    .edu-details {
+      font-size: 0.86rem;
+      color: #9ca3af;
+      margin-top: 2px;
+    }
+
+    .edu-meta {
+      margin-top: 4px;
+      font-size: 0.82rem;
+      color: #6b7280;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 600px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .skill-group h4 {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    .skill-group ul {
+      list-style: none;
+      color: #d1d5db;
+    }
+
+    .skill-group li + li {
+      margin-top: 2px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 6px;
+    }
+
+    .chip {
+      font-size: 0.72rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(75, 85, 99, 0.95);
+      color: #e5e7eb;
+    }
+
+    .chip--soft {
+      background: rgba(34, 197, 94, 0.12);
+      border-color: rgba(34, 197, 94, 0.7);
+      color: #bbf7d0;
+    }
+
+    .list-compact {
+      list-style: none;
+      font-size: 0.9rem;
+      color: #d1d5db;
+    }
+
+    .list-compact li + li {
+      margin-top: 4px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 0.76rem;
+      color: #6b7280;
+    }
+
+    footer span {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="title-block">
+        <h1><span>Sumon</span> Nath</h1>
+        <p class="role">SecOps Engineer · Sr Software Engineer · Security Researcher</p>
+        <p class="tagline">
+          Agile security engineer with 3+ years of experience in application &amp; network security,
+          NIST-aligned assessments, vulnerability testing, and blockchain auditing — helping teams
+          build and ship secure systems without slowing down delivery.
+        </p>
+        <div class="pills">
+          <span class="pill pill--accent">Application &amp; Network Security</span>
+          <span class="pill">NIST &amp; Agile Security</span>
+          <span class="pill">Vulnerability Research &amp; Exploitation</span>
+          <span class="pill">CVE &amp; CTF Contributor</span>
+        </div>
+      </div>
+
+      <aside class="contact-card">
+        <div class="contact-row">
+          <div class="contact-label">Location</div>
+          <div class="contact-value">515 Nath Villa, S C Ghosh Street, Goalapara</div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-label">Email</div>
+          <div class="contact-value">
+            <a href="mailto:snath2973@gmail.com" class="contact-link">snath2973@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-label">Phone</div>
+          <div class="contact-value">
+            <a href="tel:+918360207436" class="contact-link">+91&nbsp;83602&nbsp;07436</a>
+          </div>
+        </div>
+
+        <div class="socials">
+          <!-- Replace # with your actual links -->
+          <a class="social-chip" href="#" target="_blank" rel="noreferrer">
+            GitHub · <span>@your-handle</span>
+          </a>
+          <a class="social-chip" href="#" target="_blank" rel="noreferrer">
+            LinkedIn · <span>/in/your-profile</span>
+          </a>
+          <a class="social-chip" href="#" target="_blank" rel="noreferrer">
+            Blog · <span>Security notes</span>
+          </a>
+        </div>
+        <p class="hint">Update the social links above with your real profiles.</p>
+      </aside>
+    </header>
+
+    <main>
+      <!-- Left column: Summary + Experience -->
+      <section>
+        <div class="section">
+          <div class="section-header">
+            <h2 class="section-title">Profile</h2>
+            <span class="section-subtitle">Overview</span>
+          </div>
+          <p class="summary-text">
+            SecOps Engineer with <strong>3+ years</strong> of hands-on experience in
+            <strong>application and network security</strong>, including NIST-aligned risk
+            assessments, vulnerability research, secure infrastructure deployment, and blockchain
+            auditing. Comfortable working across <strong>Agile teams</strong> to turn findings
+            into actionable remediation, build <strong>vulnerable labs &amp; CTFs</strong> for
+            training, and support <strong>incident response</strong> through proactive monitoring
+            and detection engineering.
+          </p>
+        </div>
+
+        <div class="section">
+          <div class="section-header">
+            <h2 class="section-title">Experience</h2>
+            <span class="section-subtitle">Professional</span>
+          </div>
+
+          <!-- Loginsoft -->
+          <article class="experience-item">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">SecOps Engineer</div>
+                <div class="exp-company">Loginsoft (Checkmarx) Pvt Ltd</div>
+              </div>
+              <div class="exp-duration">2024 &ndash; 2025</div>
+            </div>
+            <div class="exp-tags">
+              <span class="exp-tag">SCA</span>
+              <span class="exp-tag">DAST</span>
+              <span class="exp-tag">Vulnerability Research</span>
+              <span class="exp-tag">NIST</span>
+              <span class="exp-tag">Secure SDLC</span>
+            </div>
+            <ul class="exp-points">
+              <li>
+                Conducted <strong>software composition analysis (SCA)</strong> for client applications
+                to identify and prioritize open-source risks.
+              </li>
+              <li>
+                Led <strong>patch management</strong> and coordination with development teams to ensure
+                timely remediation of discovered security vulnerabilities.
+              </li>
+              <li>
+                Developed <strong>custom exploits</strong> and built <strong>vulnerable VMs</strong>
+                to validate findings and support internal research.
+              </li>
+              <li>
+                Executed <strong>DAST</strong> on in-house and client applications, validating and
+                documenting findings with clear impact and remediation guidance.
+              </li>
+              <li>
+                Performed <strong>network and application-level assessments</strong> aligned with
+                NIST and industry best practices, supporting incident response with log and alert review.
+              </li>
+            </ul>
+          </article>
+
+          <!-- Qbit Technology -->
+          <article class="experience-item">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">SecOps Engineer</div>
+                <div class="exp-company">Qbit Technology Pvt Ltd</div>
+              </div>
+              <div class="exp-duration">2022 &ndash; 2024</div>
+            </div>
+            <div class="exp-tags">
+              <span class="exp-tag">Server Hardening</span>
+              <span class="exp-tag">Terraform</span>
+              <span class="exp-tag">CTF Design</span>
+              <span class="exp-tag">Cloud &amp; On-prem</span>
+            </div>
+            <ul class="exp-points">
+              <li>
+                Performed <strong>comprehensive server testing</strong> to validate configuration,
+                hardening, and runtime performance across on-prem and cloud environments.
+              </li>
+              <li>
+                Managed <strong>secure server deployments</strong> and environment setups, focusing on
+                reproducibility and least-privilege design.
+              </li>
+              <li>
+                Designed and built <strong>CTF challenges and vulnerable machines</strong> based on
+                real-world exploitation techniques for training and research.
+              </li>
+              <li>
+                Automated infrastructure deployment and management using
+                <strong>Terraform</strong> with security controls baked into modules.
+              </li>
+              <li>
+                Conducted in-depth <strong>CVE research</strong> to assess exploitability, impact,
+                and appropriate mitigation strategies.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Right column: Education, Skills, Certifications, Awards -->
+      <section>
+        <div class="section section--flat">
+          <div class="section-header">
+            <h2 class="section-title">Education</h2>
+            <span class="section-subtitle">Academic background</span>
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree">
+              Integrated M.Tech in Computer Science &amp; Cyber Security
+            </div>
+            <div class="edu-details">Vellore Institute of Technology (VIT)</div>
+            <div class="edu-meta">
+              2020 &ndash; 2025 · CGPA: <strong>8.2</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="section section--flat">
+          <div class="section-header">
+            <h2 class="section-title">Skills</h2>
+            <span class="section-subtitle">Technical &amp; security</span>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-group">
+              <h4>Security Engineering</h4>
+              <ul>
+                <li>Security principles &amp; best practices</li>
+                <li>Vulnerability assessment &amp; pentesting</li>
+                <li>Application security testing</li>
+                <li>Secure code review</li>
+              </ul>
+            </div>
+            <div class="skill-group">
+              <h4>Frameworks &amp; Ops</h4>
+              <ul>
+                <li>NIST frameworks</li>
+                <li>Agile security practices</li>
+                <li>Network security monitoring</li>
+                <li>Incident response support</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="chips">
+            <span class="chip chip--soft">NIST-aligned assessments</span>
+            <span class="chip">Server hardening</span>
+            <span class="chip">Patch management</span>
+            <span class="chip">Exploit development</span>
+            <span class="chip">Terraform automation</span>
+            <span class="chip">CTF building &amp; lab design</span>
+          </div>
+        </div>
+
+        <div class="section section--flat">
+          <div class="section-header">
+            <h2 class="section-title">Certifications</h2>
+            <span class="section-subtitle">Verified</span>
+          </div>
+          <ul class="list-compact">
+            <li><strong>CEH v12</strong> &mdash; EC-Council</li>
+            <li><strong>eJPT</strong> &mdash; eLearnSecurity</li>
+          </ul>
+        </div>
+
+        <div class="section section--flat">
+          <div class="section-header">
+            <h2 class="section-title">Awards &amp; Recognition</h2>
+            <span class="section-subtitle">Community impact</span>
+          </div>
+          <ul class="list-compact">
+            <li>Microsoft <strong>Most Valuable Security Researcher</strong></li>
+            <li><strong>Hall of Fame</strong> at 100+ domains</li>
+            <li><strong>13×</strong> CTF winner</li>
+            <li><strong>5×</strong> Hackathon winner</li>
+            <li><strong>2× CVE</strong> published (under my name)</li>
+            <li><strong>1× CWE</strong> in progress</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      &copy; <span>Sumon Nath</span> · SecOps Engineer &amp; Security Researcher
+    </footer>
+  </div>
+</body>
+</html>
